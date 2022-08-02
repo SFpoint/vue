@@ -20,7 +20,7 @@
 <select v-model="blog.author">
     <option v-for="author in authors">{{ author }}</option>
 </select>
-<button v-on:click.prevent="post"> Add Blog</button>
+<button @click.prevent="post"> Add Blog</button>
 </form>
 <div v-if="submitted">
 <h3>Post added</h3>
@@ -40,17 +40,13 @@
 </template>
 
 <script>
+import { blog } from '../models';
 
 export default {
-
+blog: new blog,
     data () {
         return {
-    blog: {
-            title: "",
-        content: "",
-        categories: [],
-        author: ""
-},
+    blog: {},
     authors: ['Thor', 'Iron Man', 'Dare Devil', 'Batman'],
     submitted: false,
         }
